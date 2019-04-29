@@ -6,28 +6,31 @@ library(rvest)
 library(XML)
 library(stringr)
 library(ggthemes)
+library(pdftools)
+library(tm)
+library(tidytext)
+library(purrr)
 
 
-urls <- c('https://www.nytimes.com/2012/10/27/world/europe/berlusconi-convicted-and-sentenced-in-tax-fraud.html?searchResultPosition=2',
-          'https://www.nytimes.com/2016/06/06/us/panama-papers.html?hp=&action=click&pgtype=Homepage&clickSource=story-heading&module=inline&region=top-news&WT.nav=top-news&_r=0&login=email&auth=login-email',
-          'https://www.nytimes.com/2016/06/07/opinion/panama-papers-point-to-tax-evasion.html?searchResultPosition=3',
-          'https://www.nytimes.com/2016/04/04/us/politics/leaked-documents-offshore-accounts-putin.html?module=inline',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          )
+directory <- "/Users/benjaminkinsella/Documents/GitHub/Tax-Fraud-and-NLP-Demo/pdfs"
 
 
-nyt_urls <- lapply(urls, function(x) read_html(x) %>% html_text())
+all_pdfs <- list.files(pattern = ".pdf$")
 
 
-evasion <- do.call(rbind, Map(data.frame, text= wiki_urls))
-evasion$text <- as.character(evasion$text)
+Corpus <- map_df(all_pdfs, ~ data_frame(txt = pdf_text(.x)
+  
+write.csv(Corpus,'policydocs.csv')         
+                 
+unnested_words <- map_df(all_pdfs, ~ data_frame(txt = pdf_text(.x)) %>%
+                   mutate(filename = .x) %>%
+                   unnest_tokens(word, txt))
 
-evasion_words <- evasion %>%
-  unnest_tokens(word, text) %>%
-  filter(str_detect(word, "[a-z']$"),
-         !word %in% stop_words$word)
+
+
+
+              
+ 
+         
+
+

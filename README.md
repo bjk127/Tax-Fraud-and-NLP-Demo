@@ -1,24 +1,38 @@
 # Tax Fraud and NLP Demo
-
 (Pertinent NLP techniques with the goal of creating a tax fraud ontology.)
 
 ## Introduction 
+This document attempts to showcase the ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The outline will be as follows:
 
+- Overview of information extraction
+- Relevant event data/ontologies
+- Applicability of deep neural networks on text
+- Sample datasets
 
 ## Information Extraction
 
-## Political/Tax Event Ontologies
+A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014)
 
+
+## Event Ontologies
+
+
+![](img/QuadClass Events.png)
+(source: Schein et al. 2016)
+
+
+[PETRARCH2 code](https://github.com/openeventdata/petrarch2)
+
+
+## Areas of opportunity
 
 
 ## Sample data bases 
-For purposes of this demo, I've mined a sample of three data sets using a corpus of (1) relevant policy and research documents from the World Bank Group and OECD; (2) Wikipedia articles pertaining to tax fraud; and (3) the ICIJ Offshore database. 
+For purposes of this demo, I've mined three data sets using a corpus of (1) relevant policy and research documents from the World Bank Group and OECD; (2) Wikipedia articles pertaining to tax fraud; and (3) the ICIJ Offshore database. 
 
 ## 1) Policy and Research Papers on tax fraud
 
 First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. A collection of [12 policy and research papers](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/tree/master/pdfs) were downloaded and merged together. 
-
-
 
 ```
 directory <- "~/Documents/GitHub/Tax-Fraud-and-NLP-Demo/pdfs"
@@ -32,25 +46,11 @@ Corpus <- map_df(all_pdfs, ~ data_frame(txt = pdf_text(.x)) %>%
 
 ```
 
+For further details, the link to the code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/policy_research.R)
+
 ## 2) Wikipedia Articles
 
-Furthermore, consider a corpus formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine numerous numbers of articles, I create a small corpus of 13 pertinent Wikipedia pages on tax fraud, saved as `html_urls`.
-
-1) Tax Avoidance - https://en.wikipedia.org/wiki/Tax_avoidance
-2) Tax Shelters - https://en.wikipedia.org/wiki/Tax_shelter
-3) Tax Havens - https://en.wikipedia.org/wiki/Tax_haven
-4) Offshore Financial Centers - https://en.wikipedia.org/wiki/Offshore_financial_centre
-5) Tax Residence - https://en.wikipedia.org/wiki/Tax_residence
-6) Panama Papers https://en.wikipedia.org/wiki/Panama_Papers
-7) Money Laundering https://en.wikipedia.org/wiki/Money_laundering
-8)Suspicious Activity Reports - https://en.wikipedia.org/wiki/Suspicious_activity_report
-9) Financial Action task Force - https://en.wikipedia.org/wiki/Financial_Action_Task_Force_on_Money_Laundering
-10)Bank of Credit and Commercial International - https://en.wikipedia.org/wiki/Bank_of_Credit_and_Commerce_International
-11)Paradise Papers - https://en.wikipedia.org/wiki/Paradise_Papers
-12)Bahamas Leak - https://en.wikipedia.org/wiki/Bahamas_Leaks
-13)Operation Car Wash https://en.wikipedia.org/wiki/Operation_Car_Wash'
-
-
+Furthermore, consider a corpus formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine numerous numbers of articles, I create a small corpus of 13 pertinent Wikipedia pages on tax fraud, saved as `html_urls`. These links and code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/wiki.R)
 
 ```
  wiki_urls <- lapply(html_urls, function(x) read_html(x) %>% html_text())
@@ -117,3 +117,6 @@ The following table breaks down the file structure of the entire corpus of docum
 | panama_papers_officer.csv  |    Nodes      | Persons (directors, shareholders, and so on)| 345,645 | name, country_code |
 
 
+## References
+
+Cohen and Demner-Fushman, 2014
