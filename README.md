@@ -5,13 +5,20 @@
 ## Introduction 
 
 
+## Information Extraction
 
-## Sample data bases
-For purposes of this demo, I'll create a sample of three data sets using a corpus of (1) relevant policy and research documents from the World Bank Group and OECD; (2) Wikipedia articles pertaining to tax fraud; and (3) the ICIJ Offshore database. 
+## Political/Tax Event Ontologies
 
-## Policy and Research Papers on tax fraud
 
-First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. 
+
+## Sample data bases 
+For purposes of this demo, I've mined a sample of three data sets using a corpus of (1) relevant policy and research documents from the World Bank Group and OECD; (2) Wikipedia articles pertaining to tax fraud; and (3) the ICIJ Offshore database. 
+
+## 1) Policy and Research Papers on tax fraud
+
+First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. A collection of [12 policy and research papers](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/tree/master/pdfs) were downloaded and merged together. 
+
+
 
 ```
 directory <- "~/Documents/GitHub/Tax-Fraud-and-NLP-Demo/pdfs"
@@ -25,9 +32,9 @@ Corpus <- map_df(all_pdfs, ~ data_frame(txt = pdf_text(.x)) %>%
 
 ```
 
-## Wikipedia Articles
+## 2) Wikipedia Articles
 
-In addition to relevant policy and research papers, a corpus could be formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine articles  
+Furthermore, consider a corpus formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine numerous numbers of articles, I create a small corpus of 13 pertinent Wikipedia pages on tax fraud, saved as `html_urls`.
 
 1) Tax Avoidance - https://en.wikipedia.org/wiki/Tax_avoidance
 2) Tax Shelters - https://en.wikipedia.org/wiki/Tax_shelter
@@ -43,21 +50,9 @@ In addition to relevant policy and research papers, a corpus could be formed usi
 12)Bahamas Leak - https://en.wikipedia.org/wiki/Bahamas_Leaks
 13)Operation Car Wash https://en.wikipedia.org/wiki/Operation_Car_Wash'
 
-```
-html_urls <- c('https://en.wikipedia.org/wiki/Tax_avoidance',
-               'https://en.wikipedia.org/wiki/Tax_shelter',
-               'https://en.wikipedia.org/wiki/Tax_haven',
-               'https://en.wikipedia.org/wiki/Offshore_financial_centre',
-               'https://en.wikipedia.org/wiki/Tax_residence',
-               'https://en.wikipedia.org/wiki/Panama_Papers',
-               'https://en.wikipedia.org/wiki/Money_laundering',
-               'https://en.wikipedia.org/wiki/Suspicious_activity_report',
-               'https://en.wikipedia.org/wiki/Financial_Action_Task_Force_on_Money_Laundering',
-               'https://en.wikipedia.org/wiki/Bank_of_Credit_and_Commerce_International',
-               'https://en.wikipedia.org/wiki/Paradise_Papers',
-               'https://en.wikipedia.org/wiki/Bahamas_Leaks',
-               'https://en.wikipedia.org/wiki/Operation_Car_Wash')
 
+
+```
  wiki_urls <- lapply(html_urls, function(x) read_html(x) %>% html_text())
  
  
@@ -70,13 +65,13 @@ evasion_words <- evasion %>%
          !word %in% stop_words$word)
 ```
 
-## The Panama Papers Database
+## 3) The Panama Papers Database
 
 The third sample data set comes from the  ”ICIJ  Offshore”  database,  which presents  the  network  of  relationships  between  companies  and  individual  people  with  offshore  companies based in tax havens. These documents pertain to the Panama Papers, which are a set of 11.5 million document leaks from Panamanian law company ”Mossack Fonseca”. The documents provide information on approximately 360,000 businesses and individuals in more than 200 countries linked to offshore structures and covering a time period of nearly 40 years, from 1977 to 2016.
 
 More can be found at the following link: https://www.occrp.org/en/panamapapers/database
 
- These documents consists in a directed and unweighted network based on commercial  registration  of  all  types  of  companies  involved  in  the  scandal  and the existing relations type, which are:
+ These documents are comprised of a directed and unweighted network based on the commercial  registration  of  all  types  of  companies  involved  in  the  scandal  and the existing relations type, which are:
 
 | **Text** | ** Meaning In Document**       |
 | ------------- |:-------------:|
@@ -86,7 +81,7 @@ More can be found at the following link: https://www.occrp.org/en/panamapapers/d
 |”intermediary of” | If it mediates companies in access to offshores.|
 | ”similar of” | If the company is related to another company, among other attributes.|
 
-# How The Data Is Structured:
+## How the  Is Structured:
 Below is a break down between the different roles of Entity, Officer, and Intermediary.
 
 ![](img/shapeofthedata.png)
