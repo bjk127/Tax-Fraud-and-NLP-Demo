@@ -14,7 +14,7 @@ For purposes of this demo, I'll create a sample of three data sets using a corpu
 First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. 
 
 ```
-directory <- "/Users/benjaminkinsella/Documents/GitHub/Tax-Fraud-and-NLP-Demo/pdfs"
+directory <- "~/Documents/GitHub/Tax-Fraud-and-NLP-Demo/pdfs"
 
 
 all_pdfs <- list.files(pattern = ".pdf$")
@@ -43,7 +43,32 @@ In addition to relevant policy and research papers, a corpus could be formed usi
 12)Bahamas Leak - https://en.wikipedia.org/wiki/Bahamas_Leaks
 13)Operation Car Wash https://en.wikipedia.org/wiki/Operation_Car_Wash'
 
+```
+html_urls <- c('https://en.wikipedia.org/wiki/Tax_avoidance',
+               'https://en.wikipedia.org/wiki/Tax_shelter',
+               'https://en.wikipedia.org/wiki/Tax_haven',
+               'https://en.wikipedia.org/wiki/Offshore_financial_centre',
+               'https://en.wikipedia.org/wiki/Tax_residence',
+               'https://en.wikipedia.org/wiki/Panama_Papers',
+               'https://en.wikipedia.org/wiki/Money_laundering',
+               'https://en.wikipedia.org/wiki/Suspicious_activity_report',
+               'https://en.wikipedia.org/wiki/Financial_Action_Task_Force_on_Money_Laundering',
+               'https://en.wikipedia.org/wiki/Bank_of_Credit_and_Commerce_International',
+               'https://en.wikipedia.org/wiki/Paradise_Papers',
+               'https://en.wikipedia.org/wiki/Bahamas_Leaks',
+               'https://en.wikipedia.org/wiki/Operation_Car_Wash')
 
+ wiki_urls <- lapply(html_urls, function(x) read_html(x) %>% html_text())
+ 
+ 
+evasion <- do.call(rbind, Map(data.frame, text= wiki_urls))
+evasion$text <- as.character(evasion$text)
+
+evasion_words <- evasion %>%
+  unnest_tokens(word, text) %>%
+  filter(str_detect(word, "[a-z']$"),
+         !word %in% stop_words$word)
+```
 
 ## The Panama Papers Database
 
