@@ -1,6 +1,6 @@
 # Tax Fraud and NLP Demo
 
-***To go straight to results, [Click here](#Proposed idea)***
+***To go straight to results, [Click here!](#results)***
 
 ## Introduction 
 This document delineates several ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The link to the presentation will be [here](). The outline will be as follows:
@@ -51,7 +51,7 @@ A common NLP technique to extract semantic content from text is *information ext
 Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolution categories, called QuadClass. Used in Beieler's (2016) study.
 
 ### CAMEO Example, Beieler (2016)
-*[Study](https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
+* [Study](https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
 * Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
 * Example of how NLP and deep learning can automatically classify events according to ontology.
 
