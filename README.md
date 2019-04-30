@@ -51,7 +51,7 @@ A common NLP technique to extract semantic content from text is *information ext
 Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolution categories, called QuadClass. Used in Beieler's (2016) study.
 
 ### CAMEO Example, Beieler (2016)
-* [Study](https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
+* [Study](https://arxiv.org/pdf/1609.06239.pdf) demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
 * Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
 * Example of how NLP and deep learning can automatically classify events according to ontology.
 
@@ -69,7 +69,14 @@ Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolu
 
 ## Proposal
 
- text mining to gather on-the-ground accounts of corruption and create a guiding framework for relevant stakeholders. That is, I would first build a corpus of text from community platforms, news sources, and social media (e.g., Consul, Twitter, etc.) and use language features to extract entities, identify red flags, and uncover citizen engagement/whistleblowers. This information would be very useful in determining culpable agents and problematic areas, such that it would be a first step in examining tax-fraud reasonableness. Thus, the goal would be threefold: (1) Create and analyze a corpus using a suite of NLP techniques (e.g., entity extraction, geo-tagging, pattern-matching, etc.), which could identify event type, location, date, actor/agent, number of people effected, among other pertinent variables; (2) merge these insights with relevant stakeholder partnerships; and (3) create a critical analog to drive an anti-corruption agenda forward. Such a model could also serve as an anti-corruption ontology of entities, distinguishing between different topics to provide a framework for stakeholders. 
+ * Use of text mining and NER to gather on-the-ground accounts of corruption and create a guiding framework for relevant stakeholders. 
+ 
+ * Steps: 
+    * Build a corpus of text from community platforms, news sources, and social media (e.g., Consul, Twitter, etc.) a
+    * Language features to extract entities, identify red flags, and uncover citizen engagement/whistleblowers. 
+    
+### Why would NER be useful? 
+This information would be very useful in determining culpable agents and problematic areas, such that it would be a first step in examining tax-fraud reasonableness. Thus, the goal would be threefold: (1) Create and analyze a corpus using a suite of NLP techniques (e.g., entity extraction, geo-tagging, pattern-matching, etc.), which could identify event type, location, date, actor/agent, number of people effected, among other pertinent variables; (2) merge these insights with relevant stakeholder partnerships; and (3) create a critical analog to drive an anti-corruption agenda forward. Such a model could also serve as an anti-corruption ontology of entities, distinguishing between different topics to provide a framework for stakeholders. 
 
 
 ## Sample databases 
