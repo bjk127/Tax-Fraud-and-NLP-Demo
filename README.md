@@ -30,7 +30,7 @@ A common NLP technique to extract semantic content from text is *information ext
     * Unsupervised relation extraction - Extracting relations from the web when we have no labeled training data.
 
 
-[alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/Generic%20Entity%20Types.png)
+![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/Generic%20Entity%20Types.png)
 (source: Jurafsky and Martin, 2018)
 
 * Possible uses of NER:
