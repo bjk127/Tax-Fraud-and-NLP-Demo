@@ -1,6 +1,6 @@
 # Tax Fraud and NLP Demo
 
-***To go straight to results, [Click here!](#proposed idea)***
+***To go straight to results, [Click here!](#Proposal)***
 
 ## Introduction 
 This document delineates several ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The link to the presentation will be [here](). The outline will be as follows:
@@ -67,7 +67,7 @@ Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolu
     * Machine-translated Arabic - Same set of labelled Arabic sentences that were run through machine-translation software (Weese et al., 2011). 
 * Results: Character-based ConvNets performed better than the word-based models and Arabic-language model performed well even with such a small corpus.
 
-## Proposed idea
+## Proposal
 
  text mining to gather on-the-ground accounts of corruption and create a guiding framework for relevant stakeholders. That is, I would first build a corpus of text from community platforms, news sources, and social media (e.g., Consul, Twitter, etc.) and use language features to extract entities, identify red flags, and uncover citizen engagement/whistleblowers. This information would be very useful in determining culpable agents and problematic areas, such that it would be a first step in examining tax-fraud reasonableness. Thus, the goal would be threefold: (1) Create and analyze a corpus using a suite of NLP techniques (e.g., entity extraction, geo-tagging, pattern-matching, etc.), which could identify event type, location, date, actor/agent, number of people effected, among other pertinent variables; (2) merge these insights with relevant stakeholder partnerships; and (3) create a critical analog to drive an anti-corruption agenda forward. Such a model could also serve as an anti-corruption ontology of entities, distinguishing between different topics to provide a framework for stakeholders. 
 
