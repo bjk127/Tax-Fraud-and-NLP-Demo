@@ -16,13 +16,12 @@ This document delineates several ways in which information extraction can be use
 * Supervised and unsupervised learning are widely used. Examples include:
     * Sentiment analysis
     * Machine translation
-    * Part-of-speech tagging
+    * Part-of-speech (POS) tagging
     * Chunking
     * Information Extraction
 
 
 ## Information Extraction
-
 A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014). A first step to IE is Named Entity Recognition (NER).
 
 *	NER finds named entities (e.g., person, location, organization, temporal expressions, etc.). 
@@ -30,14 +29,16 @@ A common NLP technique to extract semantic content from text is *information ext
     * Semi-supervised - Taking a few high-precision patterns and using a bootstrap classifier.
     * Unsupervised relation extraction - Extracting relations from the web when we have no labeled training data.
 
+
+[alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/Generic%20Entity%20Types.png)
+(source: Jurafsky and Martin, 2018)
+
 * Possible uses of NER:
     * Identifying mentions of tax fraud events and their times
     * Finding relations among entities, such as businesses/people, and temporal expressions
 
 
-
 ## Event Ontologies
-
 * Encompasses a representation, formal naming, and definition of categories, properties and relations between entities. 
 * Example --> How can NLP automatically tag political relevant event data? How do these insights inform stakeholders and create a hierarchy of labels used to understand events?
     * Training texts follow Conflict and Meditation Event Observations (CAMEO) coding ontology using 200 event classifications (e.g., Gerner et al., 2001); Schrodt (2006) divided ontology into lower-resolution categories called QuadClasss
@@ -47,12 +48,12 @@ A common NLP technique to extract semantic content from text is *information ext
 ![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/QuadClass%20Events.png)
 (source: QuadClasses, Schrodt, 2006)
 
-Above image from Schrodt (2006) who divided CAMEO ontology into lower-resolution categories, called QuadClass.
+Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolution categories, called QuadClass. Used in Beieler's (2016) study.
 
 ### CAMEO Example, Beieler (2016)
-* (Study)[(https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that extract politically relevant events.
+* (Study)[(https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
 * Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
-* Example of how NLP and deep learning can automatically classify events according to ontology
+* Example of how NLP and deep learning can automatically classify events according to ontology.
 
 #### About the study
 * Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2)
