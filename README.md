@@ -22,16 +22,15 @@ This document delineates several ways in which information extraction can be use
 
 
 ## Information Extraction
-A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014). A first step to IE is Named Entity Recognition (NER).
+A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014). A first step to IE is Named Entity Recognition (NER), such as the following:
+
+![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/Generic%20Entity%20Types.png)
+(source: Jurafsky and Martin, 2018)
 
 *	NER finds named entities (e.g., person, location, organization, temporal expressions, etc.). 
     * Supervised relation extraction - Choosing a fixed set of entities and relations, taking hand-annotated corpus and training classifiers to annotate unseen test set).
     * Semi-supervised - Taking a few high-precision patterns and using a bootstrap classifier.
     * Unsupervised relation extraction - Extracting relations from the web when we have no labeled training data.
-
-
-![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/Generic%20Entity%20Types.png)
-(source: Jurafsky and Martin, 2018)
 
 * Possible uses of NER:
     * Identifying mentions of tax fraud events and their times
@@ -51,7 +50,7 @@ A common NLP technique to extract semantic content from text is *information ext
 Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolution categories, called QuadClass. Used in Beieler's (2016) study.
 
 ### CAMEO Example, Beieler (2016)
-* (Study)[(https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
+* [Study](https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
 * Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
 * Example of how NLP and deep learning can automatically classify events according to ontology.
 
