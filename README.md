@@ -1,6 +1,6 @@
 # Tax Fraud and NLP Demo
 
-***To go straight to the proposal, [Click here!](#Proposal)***
+***To go straight to the proposal, [Click here!](#Tax Fraud Proposal)***
 
 ## Introduction 
 This document delineates several ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The link to the presentation will be [here](). The outline will be as follows:
@@ -18,8 +18,7 @@ This document delineates several ways in which information extraction can be use
     * Sentiment analysis
     * Machine translation
     * Part-of-speech (POS) tagging
-    * Chunking
-    * Information Extraction
+    * Information Extraction (IE)
 
 
 ## Information Extraction
@@ -44,30 +43,33 @@ A common NLP technique to extract semantic content from text is *information ext
     * Training texts follow Conflict and Meditation Event Observations (CAMEO) coding ontology using 200 event classifications (e.g., Gerner et al., 2001); Schrodt (2006) divided ontology into lower-resolution categories called QuadClasss
     * Consists of verb phrases(VPs) and noun phrases (NPs)  to code actions and actors.
 
+Below, we observe Schrodt's (2006) visualization who divided the CAMEO ontology into lower-resolution categories, called QuadClass. 
 
 ![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/QuadClass%20Events.png)
 (source: QuadClasses, Schrodt, 2006)
 
-Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolution categories, called QuadClass. Used in Beieler's (2016) study.
+Let us see how this ontology was used in a deep neural network example.
 
-### CAMEO Example, Beieler (2016)
+*CAMEO Example, Beieler (2016)*
 * [Study](https://arxiv.org/pdf/1609.06239.pdf) demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
 * Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
 * Example of how NLP and deep learning can automatically classify events according to ontology.
 
-#### About the study
+*About the study*
 * Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2). These approaches use parser-based methods, relying on human-created dictionaries.
 * Beieler (2016) replaced parser-based methods to instead use convolutional neural nets to identify events according to QuadClass variables (i.e., Conflict, Material Cooperation, Verbal Conflict, Verbal Cooperation)
 * Two neural architectures were used to classify a political event: 
     * (1) Pre-trained word embeddings (Kim, 2014); and (2) character ConvNets (Zhang et al., 2015) to automatically detect events and relationships.
 
-* Data:
-    * Soft-labelled English - English corpus consisted of data scraped from online news media sites.
-    * Soft-labelled ARabic - Arabic corpus was derived from a sentence-aligned [English/Arabic corpus](https://www.ldc.upenn.edu/collaborations/past-projects/gale/data/gale-pubs).
-    * Machine-translated Arabic - Same set of labelled Arabic sentences that were run through machine-translation software (Weese et al., 2011). 
+*Data*:
+* Soft-labelled English - English corpus consisted of data scraped from online news media sites.
+* Soft-labelled ARabic - Arabic corpus was derived from a sentence-aligned [English/Arabic corpus](https://www.ldc.upenn.edu/collaborations/past-projects/gale/data/gale-pubs).
+* Machine-translated Arabic - Same set of labelled Arabic sentences that were run through machine-translation software (Weese et al., 2011). 
 * Results: Character-based ConvNets performed better than the word-based models and Arabic-language model performed well even with such a small corpus.
 
-## Proposal
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Tax Fraud Proposal
 
  * Use of text mining and NER to gather on-the-ground accounts of corruption and create a guiding framework for relevant stakeholders. 
  
