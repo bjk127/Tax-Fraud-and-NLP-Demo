@@ -80,14 +80,15 @@ Let us see how this ontology was used in a deep neural network example.
 ### Why would NER be useful? 
 This information would be very useful in determining culpable agents and problematic areas, such that it would be a first step in examining tax-fraud reasonableness. Thus, the goal would be threefold: (1) Create and analyze a corpus using a suite of NLP techniques (e.g., entity extraction, geo-tagging, pattern-matching, etc.), which could identify event type, location, date, actor/agent, number of people effected, among other pertinent variables; (2) merge these insights with relevant stakeholder partnerships; and (3) create a critical analog to drive an anti-corruption agenda forward. Such a model could also serve as an anti-corruption ontology of entities, distinguishing between different topics to provide a framework for stakeholders. 
 
+-----------------------------------------------------------------------------------------------------------------------------
 
-## Sample databases 
+## Sample corpora
 For purposes of this demo, I've mined three data sets using a corpus of:
 * (1) relevant policy and research documents from the World Bank Group and OECD; 
 * (2) Wikipedia articles pertaining to tax fraud; and 
 * (3) the ICIJ Offshore database. 
 
-### 1) Policy and Research Papers on tax fraud
+### 1) Policy and research papers on tax fraud
 
 First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. A small collection of [policy and research papers](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/tree/master/pdfs) all regarding tax evasion were collected and merged together.
 
@@ -105,9 +106,9 @@ Corpus <- map_df(all_pdfs, ~ data_frame(txt = pdf_text(.x)) %>%
 
 For further details, the link to the code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/policy_research.R)
 
-### 2) Wikipedia Articles
+### 2) Web articles
 
-Furthermore, consider a corpus formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine numerous numbers of articles, I create a small corpus of 13 pertinent Wikipedia pages on tax fraud, saved as `html_urls`. These links and code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/wiki.R)
+Furthermore, consider a corpus formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine numerous numbers of articles, I create a small corpus of Wikipedia webpages on tax fraud, saved as `html_urls`. These links and code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/wiki.R)
 
 ```
  wiki_urls <- lapply(html_urls, function(x) read_html(x) %>% html_text())
@@ -122,7 +123,7 @@ evasion_words <- evasion %>%
          !word %in% stop_words$word)
 ```
 
-### 3) The Panama Papers Database
+### 3) The Panama Papers Database: ICIJ
 
 The third sample data set comes from the  ”ICIJ  Offshore”  database,  which presents  the  network  of  relationships  between  companies  and  individual  people  with  offshore  companies based in tax havens. These documents pertain to the Panama Papers, which are a set of 11.5 million document leaks from Panamanian law company ”Mossack Fonseca”. The documents provide information on approximately 360,000 businesses and individuals in more than 200 countries linked to offshore structures and covering a time period of nearly 40 years, from 1977 to 2016.
 
