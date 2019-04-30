@@ -1,6 +1,6 @@
 # Tax Fraud and NLP Demo
 
-***To go straight to the proposal, [Click here!](#Tax Fraud Proposal)***
+***To go straight to the proposal, [Click here!](#Proposal)***
 
 ## Introduction 
 This document delineates several ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The link to the presentation will be [here](). The outline will be as follows:
@@ -69,7 +69,7 @@ Let us see how this ontology was used in a deep neural network example.
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-# Tax Fraud Proposal
+# Proposal
 
  * Use of text mining and NER to gather on-the-ground accounts of corruption and create a guiding framework for relevant stakeholders. 
  
