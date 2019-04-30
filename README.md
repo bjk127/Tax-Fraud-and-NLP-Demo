@@ -39,22 +39,34 @@ A common NLP technique to extract semantic content from text is *information ext
 ## Event Ontologies
 
 * Encompasses a representation, formal naming, and definition of categories, properties and relations between entities. 
-* Example --> How can NLP automatically tag political relevant event data? How do these insights inform stakeholders?
-    * Training texts follow Conflict and Meditation Event Observations (CAMEO) coding ontology using 200 event classifications (e.g., Gerner et al., 2001). Schrodt (2006)
-    * CAMEO ontology has served the basis for many modern datasets (i.e., Global Database of Events, Language and Tone).
+* Example --> How can NLP automatically tag political relevant event data? How do these insights inform stakeholders and create a hierarchy of labels used to understand events?
+    * Training texts follow Conflict and Meditation Event Observations (CAMEO) coding ontology using 200 event classifications (e.g., Gerner et al., 2001); Schrodt (2006) divided ontology into lower-resolution categories called QuadClasss
     * Consists of verb phrases(VPs) and noun phrases (NPs)  to code actions and actors.
 
-### CAMEO Example, Bieler (2016)
-* Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2)
-    * These approaches use parser-based methods, relying on human-created dictionaries.
-* Bieler (2016) attempted to replace parser-based methods to instead use convolutional neural nets to identify events.
-* Two neural architectures were used to classify a political event according to QuadClass variables:
-    * pre-trained word embeddings (Kim, 2014) and characters (Zhang et al., 2015) to automatically detect events and relationships.
-    * ConvNet (Zhang et al., 2015)
-* Data was comprised of the PETRARCH
 
 ![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/QuadClass%20Events.png)
 (source: QuadClasses, Schrodt, 2006)
+
+### CAMEO Example, Beieler (2016)
+* Demonstrated modern approaches to NLP and deep neural networks that extract politically relevant events.
+* Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
+* Example of how NLP and deep learning can automatically classify events according to ontology
+
+#### About the study
+* Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2)
+    * These approaches use parser-based methods, relying on human-created dictionaries.
+* Beieler (2016) replaced parser-based methods to instead use convolutional neural nets to identify events according to QuadClass variables (i.e., Conflict, Material Cooperation, Verbal Conflict, Verbal Cooperation)
+* Two neural architectures were used to classify a political event: 
+    * (1) Pre-trained word embeddings (Kim, 2014); and (2) characters (Zhang et al., 2015) to automatically detect events and relationships.
+
+* Data:
+    * Soft-labelled English - English corpus consisted of data scraped from online news media sites.
+    * Soft-labelled ARabic - Arabic corpus was derived from a sentence-aligned [English/Arabic corpus](https://www.ldc.upenn.edu/collaborations/past-projects/gale/data/gale-pubs).
+    * Machine-translated Arabic - Same set of labelled Arabic sentences that were run through machine-translation software (Weese et al., 2011). 
+
+* Results: 
+    * Character model was shown to be over 
+
 
 
 
@@ -65,10 +77,13 @@ A common NLP technique to extract semantic content from text is *information ext
 
 
 
-## Sample data bases 
-For purposes of this demo, I've mined three data sets using a corpus of (1) relevant policy and research documents from the World Bank Group and OECD; (2) Wikipedia articles pertaining to tax fraud; and (3) the ICIJ Offshore database. 
+## Sample databases 
+For purposes of this demo, I've mined three data sets using a corpus of:
+* (1) relevant policy and research documents from the World Bank Group and OECD; 
+* (2) Wikipedia articles pertaining to tax fraud; and 
+* (3) the ICIJ Offshore database. 
 
-## 1) Policy and Research Papers on tax fraud
+### 1) Policy and Research Papers on tax fraud
 
 First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. A collection of [12 policy and research papers](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/tree/master/pdfs) were downloaded and merged together. 
 
@@ -86,7 +101,7 @@ Corpus <- map_df(all_pdfs, ~ data_frame(txt = pdf_text(.x)) %>%
 
 For further details, the link to the code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/policy_research.R)
 
-## 2) Wikipedia Articles
+### 2) Wikipedia Articles
 
 Furthermore, consider a corpus formed using web articles, such as the news, Wikipedia pages with key words (e.g., tax fraud, anti-corruption). While web-scraping techniques and news APIs are able to rapidly search and mine numerous numbers of articles, I create a small corpus of 13 pertinent Wikipedia pages on tax fraud, saved as `html_urls`. These links and code can be found [here](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/wiki.R)
 
@@ -103,11 +118,23 @@ evasion_words <- evasion %>%
          !word %in% stop_words$word)
 ```
 
-## 3) The Panama Papers Database
+### 3) The Panama Papers Database
 
 The third sample data set comes from the  ”ICIJ  Offshore”  database,  which presents  the  network  of  relationships  between  companies  and  individual  people  with  offshore  companies based in tax havens. These documents pertain to the Panama Papers, which are a set of 11.5 million document leaks from Panamanian law company ”Mossack Fonseca”. The documents provide information on approximately 360,000 businesses and individuals in more than 200 countries linked to offshore structures and covering a time period of nearly 40 years, from 1977 to 2016.
 
 More can be found at the following link: https://www.occrp.org/en/panamapapers/database
+
+
+## Analyzing the corpora
+
+
+## Research papers
+
+
+
+## Wiki corpus
+
+## ICIJ Panama Papers 
 
  These documents are comprised of a directed and unweighted network based on the commercial  registration  of  all  types  of  companies  involved  in  the  scandal  and the existing relations type, which are:
 
