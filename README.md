@@ -23,7 +23,7 @@ This document delineates several ways in which information extraction can be use
 
 ## Information Extraction
 
-A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014)
+A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014). A first step to IE is Named Entity Recognition (NER).
 
 *	NER finds named entities (e.g., person, location, organization, temporal expressions, etc.). 
     * Supervised relation extraction - Choosing a fixed set of entities and relations, taking hand-annotated corpus and training classifiers to annotate unseen test set).
@@ -45,14 +45,19 @@ A common NLP technique to extract semantic content from text is *information ext
     * Consists of verb phrases(VPs) and noun phrases (NPs)  to code actions and actors.
 
 ### CAMEO Example, Bieler (2016)
-* Study aimed as using pre-trained word embeddings (Kim, 2014) and characters (Zhang et al., 2015) to automatically detect events and relationships.
+* Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2)
+    * These approaches use parser-based methods, relying on human-created dictionaries.
+* Bieler (2016) attempted to replace parser-based methods to instead use convolutional neural nets to identify events.
+* Two neural architectures were used to classify a political event according to QuadClass variables:
+    * pre-trained word embeddings (Kim, 2014) and characters (Zhang et al., 2015) to automatically detect events and relationships.
+    * ConvNet (Zhang et al., 2015)
 * Data was comprised of the PETRARCH
 
-![](img/QuadClass Events.png)
+![alt text](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/blob/master/img/QuadClass%20Events.png)
 (source: QuadClasses, Schrodt, 2006)
 
 
-[PETRARCH2 code](https://github.com/openeventdata/petrarch2)
+
 
 
 ## Areas of opportunity: Deep neural networks
