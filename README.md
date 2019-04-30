@@ -1,14 +1,15 @@
 # Tax Fraud and NLP Demo
 
+***To go straight to results, [Click here](## Proposed idea: Application of NER on unstructured text)***
 
 ## Introduction 
 This document delineates several ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The link to the presentation will be [here](). The outline will be as follows:
 
-* Introduction to NLP 
-* Named Entity Recognition (NER)
-* Event ontologies and applicability of deep neural networks 
-* Proposed idea
-* Sample datasets
+1. Introduction to NLP 
+2. Named Entity Recognition (NER)
+3. Event ontologies and applicability of deep neural networks 
+4. Proposed idea
+5. Sample datasets
 
 
 ## Natural Language Processing
@@ -50,33 +51,25 @@ A common NLP technique to extract semantic content from text is *information ext
 Above image from Schrodt (2006) who divided the CAMEO ontology into lower-resolution categories, called QuadClass. Used in Beieler's (2016) study.
 
 ### CAMEO Example, Beieler (2016)
-* [Study](https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
+*[Study](https://arxiv.org/pdf/1609.06239.pdf)] demonstrated modern approaches to NLP and deep neural networks that can be used on politically relevant text-data.
 * Methods are able to be used across ontologies and languages (e.g., Spanish, Chinese, etc.).
 * Example of how NLP and deep learning can automatically classify events according to ontology.
 
 #### About the study
-* Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2)
-    * These approaches use parser-based methods, relying on human-created dictionaries.
+* Current state-of-the-art for CAMEO event extraction is presented by the [PETRARCH2 coder](https://github.com/openeventdata/petrarch2). These approaches use parser-based methods, relying on human-created dictionaries.
 * Beieler (2016) replaced parser-based methods to instead use convolutional neural nets to identify events according to QuadClass variables (i.e., Conflict, Material Cooperation, Verbal Conflict, Verbal Cooperation)
 * Two neural architectures were used to classify a political event: 
-    * (1) Pre-trained word embeddings (Kim, 2014); and (2) characters (Zhang et al., 2015) to automatically detect events and relationships.
+    * (1) Pre-trained word embeddings (Kim, 2014); and (2) character ConvNets (Zhang et al., 2015) to automatically detect events and relationships.
 
 * Data:
     * Soft-labelled English - English corpus consisted of data scraped from online news media sites.
     * Soft-labelled ARabic - Arabic corpus was derived from a sentence-aligned [English/Arabic corpus](https://www.ldc.upenn.edu/collaborations/past-projects/gale/data/gale-pubs).
     * Machine-translated Arabic - Same set of labelled Arabic sentences that were run through machine-translation software (Weese et al., 2011). 
+* Results: Character-based ConvNets performed better than the word-based models and Arabic-language model performed well even with such a small corpus.
 
-* Results: 
-    * Character model was shown to be over 
+## Proposed idea: Application of NER on unstructured text
 
-
-
-
-
-
-## Areas of opportunity: Deep neural networks
-
-
+ text mining to gather on-the-ground accounts of corruption and create a guiding framework for relevant stakeholders. That is, I would first build a corpus of text from community platforms, news sources, and social media (e.g., Consul, Twitter, etc.) and use language features to extract entities, identify red flags, and uncover citizen engagement/whistleblowers. This information would be very useful in determining culpable agents and problematic areas, such that it would be a first step in examining tax-fraud reasonableness. Thus, the goal would be threefold: (1) Create and analyze a corpus using a suite of NLP techniques (e.g., entity extraction, geo-tagging, pattern-matching, etc.), which could identify event type, location, date, actor/agent, number of people effected, among other pertinent variables; (2) merge these insights with relevant stakeholder partnerships; and (3) create a critical analog to drive an anti-corruption agenda forward. Such a model could also serve as an anti-corruption ontology of entities, distinguishing between different topics to provide a framework for stakeholders. 
 
 
 ## Sample databases 
@@ -87,7 +80,7 @@ For purposes of this demo, I've mined three data sets using a corpus of:
 
 ### 1) Policy and Research Papers on tax fraud
 
-First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. A collection of [12 policy and research papers](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/tree/master/pdfs) were downloaded and merged together. 
+First, a corpus of relevant policy and research papers on tax fraud could be used to generate a tax fraud ontology. A small collection of [policy and research papers](https://github.com/bjk127/Tax-Fraud-and-NLP-Demo/tree/master/pdfs) all regarding tax evasion were collected and merged together.
 
 ```
 directory <- "~/Documents/GitHub/Tax-Fraud-and-NLP-Demo/pdfs"
@@ -148,7 +141,7 @@ More can be found at the following link: https://www.occrp.org/en/panamapapers/d
 |”intermediary of” | If it mediates companies in access to offshores.|
 | ”similar of” | If the company is related to another company, among other attributes.|
 
-## How the  Is Structured:
+## How the data is Structured:
 Below is a break down between the different roles of Entity, Officer, and Intermediary.
 
 ![](img/shapeofthedata.png)
