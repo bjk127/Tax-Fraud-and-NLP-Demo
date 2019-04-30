@@ -24,7 +24,15 @@ A common NLP technique to extract semantic content from text is *information ext
 [PETRARCH2 code](https://github.com/openeventdata/petrarch2)
 
 
-## Areas of opportunity
+## Areas of opportunity: Deep neural networks
+
+
+
+
+
+
+
+
 
 
 ## Sample data bases 

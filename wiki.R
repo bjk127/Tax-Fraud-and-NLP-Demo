@@ -28,6 +28,9 @@ html_urls <- c('https://en.wikipedia.org/wiki/Tax_avoidance',
  
  
 evasion <- do.call(rbind, Map(data.frame, text= wiki_urls))
+
+write.csv(evasion,'wikidocs.csv')  
+
 evasion$text <- as.character(evasion$text)
 
 evasion_words <- evasion %>%
@@ -36,8 +39,9 @@ evasion_words <- evasion %>%
          !word %in% stop_words$word)
 
 
-evasion_words %>% 
-  count(word, sort=TRUE)
+top_words <- evasion_words %>% 
+  count(word, sort=TRUE) %>%
+  filter(n > 50)
  
 evasion_words %>%
   count(word, sort = TRUE) %>%
@@ -46,7 +50,7 @@ evasion_words %>%
   ggplot(aes(word, n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip() + ggtitle("The Most Common Words in Corpus") + theme_minimal()
+  coord_flip() + ggtitle("Most Common Words in Corpus") + theme_minimal()
  
 
  
@@ -59,31 +63,57 @@ contributions <- evasion_words %>%
 contributions
  
 contributions %>%
-  top_n(25, abs(contribution)) %>%
+  top_n(50, abs(contribution)) %>%
   mutate(word = reorder(word, contribution)) %>%
   ggplot(aes(word, contribution, fill = contribution > 0)) +
   geom_col(show.legend = FALSE) +
-  coord_flip() + ggtitle('Words with the Most Contributions to Positive/Negative Sentiment Scores') + theme_minimal()
+  coord_flip() + ggtitle('Words with the most contributions to positive/negative sentiment scores') + theme_minimal()
  
 
 evasion_words %>%
   count(word) %>%
   inner_join(get_sentiments("loughran"), by = "word") %>%
   group_by(sentiment) %>%
-  top_n(5, n) %>%
+  top_n(10, n) %>%
   ungroup() %>%
   mutate(word = reorder(word, n)) %>%
   ggplot(aes(word, n)) +
   geom_col() +
   coord_flip() +
   facet_wrap(~ sentiment, scales = "free") +
-  ggtitle("Frequency of This Word in Buffett's Letters") + theme_minimal()
+  ggtitle("Frequency of words in corpus by sentiment category") + theme_minimal()
 
 
-letters_bigrams <- letters %>%
+wiki_bigrams <- evasion_words %>%
   unnest_tokens(bigram, text, token = "ngrams", n = 2)
-letters_bigram_counts <- letters_bigrams %>%
-  count(year, bigram, sort = TRUE) %>%
+evasion_bigram_counts <- wiki_bigrams %>%
+  count(bigram, sort = TRUE) %>%
   ungroup() %>%
   separate(bigram, c("word1", "word2"), sep = " ")
+  
+  
+
+
  
+negate_words <- c("not", "without", "no", "can't", "don't", "won't")
+
+evasion_bigram_counts %>%
+  filter(word1 %in% negate_words) %>%
+  count(word1, word2, wt = n, sort = TRUE) %>%
+  inner_join(get_sentiments("afinn"), by = c(word2 = "word")) %>%
+  mutate(contribution = score * nn) %>%
+  group_by(word1) %>%
+  top_n(10, abs(contribution)) %>%
+  ungroup() %>%
+  mutate(word2 = reorder(paste(word2, word1, sep = "__"), contribution)) %>%
+  ggplot(aes(word2, contribution, fill = contribution > 0)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ word1, scales = "free", nrow = 3) +
+  scale_x_discrete(labels = function(x) gsub("__.+$", "", x)) +
+  xlab("Words followed by a negation") +
+  ylab("Sentiment score * # of occurrences") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  coord_flip() + ggtitle("Words that contributed the most to sentiment when they followed a ‘negation'") + theme_minimal()
+
+
+
