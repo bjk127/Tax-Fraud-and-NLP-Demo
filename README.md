@@ -1,36 +1,61 @@
 # Tax Fraud and NLP Demo
-(Pertinent NLP techniques with the goal of creating a tax fraud ontology.)
+
 
 ## Introduction 
-This document attempts to showcase the ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The outline will be as follows:
+This document delineates several ways in which information extraction can be used on corpora with the goal of creating political event ontologies. The link to the presentation will be [here](). The outline will be as follows:
 
-- Overview of information extraction
-- Relevant event data/ontologies
+- Introduction to NLP 
+- Named Entity Recognition (NER)
+- Event ontologies
 - Applicability of deep neural networks on text
 - Sample datasets
+
+
+## Natural Language Processing
+* NLP is an interdisciplinary field that analyzes language-based data (e.g., medical records, social media, legal documents, news articles, etc.). A suite of techniques can be used to generate findings.
+* Supervised and unsupervised learning are widely used. Examples include:
+    * Sentiment analysis
+    * Machine translation
+    * Part-of-speech tagging
+    * Chunking
+    * Information Extraction
+
 
 ## Information Extraction
 
 A common NLP technique to extract semantic content from text is *information extraction (IE)*, the process that turns unstructured information embedded in text into structure data. As a first step, we may want to find proper names - that is, *named entities* in a text, such as people, places, and organizations (Cohen and Demner-Fushman, 2014)
 
+*	NER finds named entities (e.g., person, location, organization, temporal expressions, etc.). 
+    * Supervised relation extraction - Choosing a fixed set of entities and relations, taking hand-annotated corpus and training classifiers to annotate unseen test set).
+    * Semi-supervised - Taking a few high-precision patterns and using a bootstrap classifier.
+    * Unsupervised relation extraction - Extracting relations from the web when we have no labeled training data.
+
+* Possible uses of NER:
+    * Identifying mentions of tax fraud events and their times
+    * Finding relations among entities, such as businesses/people, and temporal expressions
+
+
 
 ## Event Ontologies
 
+* Encompasses a representation, formal naming, and definition of categories, properties and relations between entities. 
+* Example --> How can NLP automatically tag political relevant event data? How do these insights inform stakeholders?
+    * Training texts follow Conflict and Meditation Event Observations (CAMEO) coding ontology using 200 event classifications (e.g., Gerner et al., 2001). Schrodt (2006)
+    * CAMEO ontology has served the basis for many modern datasets (i.e., Global Database of Events, Language and Tone).
+    * Consists of verb phrases(VPs) and noun phrases (NPs)  to code actions and actors.
+
+### CAMEO Example, Bieler (2016)
+* Study aimed as using pre-trained word embeddings (Kim, 2014) and characters (Zhang et al., 2015) to automatically detect events and relationships.
+* Data was comprised of the PETRARCH
 
 ![](img/QuadClass Events.png)
-(source: Schein et al. 2016)
+(source: QuadClasses, Schrodt, 2006)
 
 
 [PETRARCH2 code](https://github.com/openeventdata/petrarch2)
 
 
 ## Areas of opportunity: Deep neural networks
-
-
-
-
-
-
 
 
 
